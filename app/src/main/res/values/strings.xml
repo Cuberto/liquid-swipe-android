@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Liquid Swipe Test</string>
+    <string name="gamecoin">GameCoin</string>
+    <string name="skip">SKIP</string>
+    <string name="online">Online</string>
+    <string name="gambling">GAMBLING</string>
+    <string name="temporibus_autem_aut_officiis_debitis_aut_rerum_necessitatibus">Temporibus autem aut\nofficiis debitis aut rerum\nnecessitatibus</string>
+    <string name="forr">For</string>
+    <string name="gamers">Gamers</string>
+    <string name="excepteur_sint_occaecat_cupidatat_non_proident_sunt_in_culpa_qui_officia">Excepteur sint occaecat\ncupidatat non proident, sunt\nin culpa qui officia</string>
+</resources>
