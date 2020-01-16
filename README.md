@@ -52,7 +52,7 @@ Step 3 : Update build.gradle inside the application module
 ```
     dependencies {
         //consume library
-        implementation 'com.cuberto.liquid-swipe:1.0.0'
+        implementation 'com.cuberto:liquid-swipe:1.0.0'
         ....
     }
 ```
