@@ -71,7 +71,9 @@ class RightEdgeController(
 
     override fun onDownTouch(ev: MotionEvent): Boolean {
         if (isAButtonPress(ev)) {
+            shouldDraw = true
             listeningForButtonClick = true
+            return true
         }
         currentX = ev.x
         if (ev.x > width - width * touchOffset) {
@@ -106,6 +108,7 @@ class RightEdgeController(
             if (isAButtonPress(ev)) {
                 animateLeft(ev.x, true)
                 listeningForButtonClick = false
+                return true
             }
             listeningForButtonClick = false
         }
