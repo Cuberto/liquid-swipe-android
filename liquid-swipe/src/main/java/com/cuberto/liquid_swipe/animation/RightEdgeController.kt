@@ -71,6 +71,7 @@ class RightEdgeController(
 
     override fun onDownTouch(ev: MotionEvent): Boolean {
         if (isAButtonPress(ev)) {
+            shouldDraw = true
             listeningForButtonClick = true
             return true
         }
