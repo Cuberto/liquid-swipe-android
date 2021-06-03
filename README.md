@@ -2,6 +2,8 @@
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/Cuberto/flashy-tabbar-android/master/LICENSE)
 
+[![](https://jitpack.io/v/Udhayarajan/liquid-swipe-android.svg)](https://jitpack.io/#Udhayarajan/liquid-swipe-android)
+
 ![Animation](https://raw.githubusercontent.com/Cuberto/liquid-swipe/master/Screenshots/animation.gif)
 
 ## Requirements
