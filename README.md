@@ -16,46 +16,32 @@ To run the example project, clone the repo, and run `app`
 
 #### GitHub Packages
 
-Step 1 : Generate a Personal Access Token for GitHub
-- Inside you GitHub account:
-- Settings -> Developer Settings -> Personal Access Tokens -> Generate new token
-- Make sure you select the following scopes (“ read:packages”) and Generate a token
-- After Generating make sure to copy your new personal access token. You cannot see it again! The only option is to generate a new key.
-
-Step 2: Store your GitHub — Personal Access Token details
-- Create a github.properties file within your root Android project
-- In case of a public repository make sure you add this file to .gitignore for keep the token private
-- Add properties gpr.usr=GITHUB_USERID and gpr.key=PERSONAL_ACCESS_TOKEN
-- Replace GITHUB_USERID with personal / organisation Github User ID and PERSONAL_ACCESS_TOKEN with the token generated in #Step 1
-
-Step 3 : Update build.gradle inside the application module
-- Add the following code to build.gradle inside the app module that will be using the library
+Step 1 : Update root build.gradle
+- In Android Studio -> Make sure that you have selected `Android`
+![image](https://user-images.githubusercontent.com/77388817/120667372-0ce94d00-c4ab-11eb-8700-8676f7b15e84.png)
+- Under Gradle Scripts 1st File is root build.gradle
+![image](https://user-images.githubusercontent.com/77388817/120668108-c6e0b900-c4ab-11eb-9e5e-6bbeec2a2e36.png)
+- Add following code in 1st file:
 ```
-    def githubProperties = new Properties()
-    githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
-    repositories {
-        maven {
-            name = "GitHubPackages"
-
-            url = uri("https://maven.pkg.github.com/Cuberto/liquid-swipe-android")
-            credentials {
-                /** Create github.properties in root project folder file with     
-                ** gpr.usr=GITHUB_USER_ID & gpr.key=PERSONAL_ACCESS_TOKEN 
-                ** Or set env variable GPR_USER & GPR_API_KEY if not adding a properties file**/
-                username = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")
-                password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
-            }
-        }
-    }
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
 ```
+
+Step 2: Update app build.gradle
+- Now open second file
 - inside dependencies of the build.gradle of app module, use the following code
 ```
-    dependencies {
-        //consume library
-        implementation 'com.cuberto:liquid-swipe:1.0.0'
-        ....
-    }
+	dependencies {
+	        ...
+	        implementation 'com.github.Udhayarajan:liquid-swipe-android:Tag'
+	}
 ```
+
+
 Sync project and now you can use flashytabbar library
 
 ## Usage
