@@ -10,7 +10,7 @@
 
 ## Example
 
-To run the example project, clone the repo, and run `app`
+To run the example project, clone the repo, and run `sample`
 
 ### As library
 
