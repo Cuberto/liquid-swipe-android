@@ -18,8 +18,10 @@ To run the example project, clone the repo, and run `app`
 
 Step 1 : Update root `build.gradle(Project: <project_name>)`
 - In Android Studio -> Make sure that you have selected `Android`
+ 
 ![image](https://user-images.githubusercontent.com/77388817/120667372-0ce94d00-c4ab-11eb-8700-8676f7b15e84.png)
 - Under Gradle Scripts 1st File is root build.gradle
+ 
 ![image](https://user-images.githubusercontent.com/77388817/120668108-c6e0b900-c4ab-11eb-9e5e-6bbeec2a2e36.png)
 - Add following code in 1st file:
 ```
