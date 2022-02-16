@@ -28,6 +28,8 @@ Step 2: Store your GitHub — Personal Access Token details
 - Add properties gpr.usr=GITHUB_USERID and gpr.key=PERSONAL_ACCESS_TOKEN
 - Replace GITHUB_USERID with personal / organisation Github User ID and PERSONAL_ACCESS_TOKEN with the token generated in #Step 1
 
+#### Groovy
+
 Step 3 : Update build.gradle inside the application module
 - Add the following code to build.gradle inside the app module that will be using the library
 ```
@@ -57,6 +59,59 @@ Step 3 : Update build.gradle inside the application module
     }
 ```
 Sync project and now you can use flashytabbar library
+
+#### Kotlin DSL
+
+Step 3 : Update build.gradle.kts inside the project module
+- add the following line in repositories under projects
+```
+ maven { setUrl("https://maven.pkg.github.com/Cuberto/liquid-swipe-android") }
+````
+- you should have something that looks close to this
+```
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { setUrl("https://maven.pkg.github.com/Cuberto/liquid-swipe-android") }
+    }
+}
+```
+
+Step 4 : Update build.gradle.kts inside the app module that is using the library
+- add the following imports at the top of the file 
+```
+import org.jetbrains.kotlin.konan.properties.Properties
+import java.io.FileInputStream
+```
+- read the needed vaues from the github.properties file
+```
+val props = Properties().apply {
+    load(FileInputStream(File(rootProject.rootDir, "github.properties")))
+}
+val githubUserId: String? = props.getProperty("gpr.user")
+val githubApiKey:String? = props.getProperty("gpr.key")
+
+repositories {
+    maven(url = uri("https://maven.pkg.github.com/Cuberto/liquid-swipe-android")) {
+        name = "GitHubPackages"
+        credentials {
+            username = githubUserId ?: System.getenv("GPR_USER")
+            password = githubApiKey ?: System.getenv("GPR_API_KEY")
+        }
+    }
+}
+```
+- inside dependencies use the following code to consume the library
+```
+    dependencies {
+        implementation "com.cuberto:liquid-swipe:1.0.0"
+        ....
+    }
+```
+- Sync project and now you can use liquid-swipe library
+
 
 ## Usage
 
