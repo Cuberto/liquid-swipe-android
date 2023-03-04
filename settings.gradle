@@ -1,2 +1,1 @@
-include ':app', ':liquid-swipe'
-rootProject.name='LiquidSwipeTest'
+include  ':liquid-swipe-android',":sample"

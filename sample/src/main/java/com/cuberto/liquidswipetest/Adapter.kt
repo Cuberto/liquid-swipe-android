@@ -5,7 +5,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
-class Adapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
+class Adapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager,
+    FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     private val total: Int = 6
     private val data : ArrayList<PageFragment> = ArrayList(total)
 
